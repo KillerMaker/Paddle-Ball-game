@@ -1,0 +1,14 @@
+#pragma once
+
+#define SCREEN_WIDTH 600
+#define SCREEN_HEIGHT 400
+
+#define BALL_SPEED 4
+#define PADDLE_SPEED 6
+
+#define BRICK_WIDTH 43.0f
+#define BRICK_HEIGHT 20.0f
+#define BRICK_OFFSET BRICK_WIDTH*2
+#define BRICK_COLUMNS 10
+#define BRICK_ROWS 4
+
