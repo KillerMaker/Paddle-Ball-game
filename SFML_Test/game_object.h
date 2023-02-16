@@ -11,24 +11,32 @@ protected:
 	sf::Sprite sprite;
 	sf::Texture texture;
 
+	bool destroyed = false;
+
 public:
 	virtual void update() = 0;
 	virtual void draw(sf::RenderWindow& window) = 0;
 
-	inline sf::Vector2<float> get_position() const noexcept { return sprite.getPosition(); }
+	sf::Vector2<float> get_position() const noexcept;
 
-	inline sf::FloatRect get_bounding_box() const noexcept { return sprite.getGlobalBounds(); }
+	sf::FloatRect get_bounding_box() const noexcept;
 
-	inline sf::Vector2<float> get_centre()const noexcept 
-	{
-		sf::FloatRect box = get_bounding_box();
-		return sf::Vector2<float>(box.width / 2.0f, box.height / 2.0f);
-	}
+	sf::Vector2<float> get_centre()const noexcept;
+	
 
-	inline float x() const noexcept { return sprite.getPosition().x; }
-	inline float y() const noexcept { return sprite.getPosition().y; }
+	float x() const noexcept;
+	float y() const noexcept;
 
 	virtual ~game_object(){}
 
 	virtual void handle_collision(game_object& other) = 0;
+
+	float left() const noexcept;
+	float right() const noexcept;
+	float top() const noexcept;
+	float bottom() const noexcept;
+
+	void destroy() noexcept;
+
+	bool is_destroyed() const noexcept;
 };

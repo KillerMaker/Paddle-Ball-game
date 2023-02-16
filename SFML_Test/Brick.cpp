@@ -10,8 +10,8 @@ brick::brick(const sf::Texture& brick_texture, float x, float y)
 void brick::handle_collision(game_object& other)
 {
 	if (ball* obj = dynamic_cast<ball*>(&other))
-	{
-	}
+		destroy();
+
 }
 
 void brick::update()

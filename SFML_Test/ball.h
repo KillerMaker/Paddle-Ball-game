@@ -20,6 +20,7 @@ public:
 	virtual void move_up() noexcept override;
 	virtual void move_left() noexcept override;
 	virtual void move_right() noexcept override;
+	virtual void move_down() noexcept override;
 
 };
 #endif // !BALL_H

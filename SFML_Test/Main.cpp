@@ -31,7 +31,7 @@ int main()
     }
        
 
-    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Random Ball");
+    sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Ball and paddle game");
     window.setFramerateLimit(60);
 
     while (window.isOpen())
@@ -54,11 +54,11 @@ int main()
 
         collision_manager.on_collision(ball, paddle);
 
-        for (int i=0; i<total_bricks;i++)
-        {
-            if(collision_manager.check_for_collision(bricks[i], ball))
-                bricks.erase(bricks.begin() + i);
-        }
+        for (auto& brick : bricks)
+            collision_manager.on_collision(ball, brick);
+
+        bricks.erase(std::remove_if(std::begin(bricks), std::end(bricks),
+            [](const brick& b) {return b.is_destroyed(); }),std::end(bricks));
 
         background.draw(window);
         ball.draw(window);

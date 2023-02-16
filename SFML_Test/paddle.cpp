@@ -54,6 +54,11 @@ void paddle::move_right() noexcept
 	velocity.x = PADDLE_SPEED;
 }
 
+void paddle::move_down() noexcept
+{
+	return;
+}
+
 
 
 
