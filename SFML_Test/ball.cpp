@@ -30,11 +30,6 @@ void ball::handle_collision(game_object& other)
 {
 	if (paddle* obj = dynamic_cast<paddle*>(&other))
 	{
-		float other_pos = obj->get_position().x;
-		float other_centre = obj->get_centre().x;
-
-		float this_centre = get_centre().x;
-
 		move_up();
 
 		if (x()<other.x())
